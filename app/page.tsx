@@ -270,7 +270,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80"
                                     alt="Pizza artisanale"
                                     fill
-                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    className="object-cover grayscale interactive-img"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -278,7 +278,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
                                     alt="Four à bois"
                                     fill
-                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    className="object-cover grayscale interactive-img"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -286,7 +286,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80"
                                     alt="Pizza Margherita"
                                     fill
-                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    className="object-cover grayscale interactive-img"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -294,7 +294,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?w=800&q=80"
                                     alt="Ingrédients frais"
                                     fill
-                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    className="object-cover grayscale interactive-img"
                                 />
                             </div>
                         </div>
@@ -334,7 +334,7 @@ export default function Home() {
                                         src={pizza.image}
                                         alt={pizza.name}
                                         fill
-                                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                                        className="object-cover grayscale interactive-img"
                                     />
                                 </div>
                                 <CardContent className="p-6">

@@ -122,6 +122,23 @@
 }
 
 @layer utilities {
+    /* Unifies hover on desktop and tap/focus on mobile for images */
+    .interactive-img {
+        transition: all 700ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .interactive-img:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+    }
+    @media (hover: none) {
+        .interactive-img:active,
+        .interactive-img:focus {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+    }
     /* Animated yellow/orange gradient on hover for dark buttons */
     .hover-gradient-fire {
         position: relative;
