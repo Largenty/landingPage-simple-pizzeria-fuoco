@@ -296,7 +296,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80"
                                     alt="Pizza artisanale"
                                     fill
-                                    className="object-cover grayscale interactive-img"
+                                    className="object-cover"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -304,7 +304,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80"
                                     alt="Four à bois"
                                     fill
-                                    className="object-cover grayscale interactive-img"
+                                    className="object-cover"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -312,7 +312,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80"
                                     alt="Pizza Margherita"
                                     fill
-                                    className="object-cover grayscale interactive-img"
+                                    className="object-cover"
                                 />
                             </div>
                             <div className="relative overflow-hidden">
@@ -320,7 +320,7 @@ export default function Home() {
                                     src="https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?w=800&q=80"
                                     alt="Ingrédients frais"
                                     fill
-                                    className="object-cover grayscale interactive-img"
+                                    className="object-cover"
                                 />
                             </div>
                         </div>

@@ -140,44 +140,6 @@
         }
     }
     /* Animated yellow/orange gradient on hover for dark buttons */
-    .hover-gradient-fire {
-        position: relative;
-        overflow: hidden;
-        background-color: oklch(0.2 0 0);
-    }
-
-    .hover-gradient-fire:before {
-        content: "";
-        position: absolute;
-        inset: -20% -30%;
-        background: linear-gradient(
-            90deg,
-            #6b1d05 0%,
-            /* deep ember */ #ff3c00 25%,
-            /* hot orange-red */ #ff4800 50%,
-            /* orange */ #ff7300 75%,
-            /* golden yellow */ #ff4800 100% /* orange back */
-        );
-        background-size: 300% 100%;
-        background-position: 0% 50%;
-        transform: none;
-        opacity: 0;
-        transition: opacity 200ms ease;
-        filter: blur(8px);
-        mix-blend-mode: screen;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    .hover-gradient-fire:hover:before {
-        opacity: 0.75;
-        animation: fire-pan 4s ease-in-out infinite;
-    }
-
-    .hover-gradient-fire > * {
-        position: relative;
-        z-index: 1;
-    }
 
     @keyframes fire-pan {
         0% {
