@@ -551,7 +551,7 @@ export default function Home() {
                             </span>
                         </div>
                         <p className="text-neutral-600 text-center text-sm font-light">
-                            © 2025 Pizzeria Fuoco. Tous droits réservés.
+                            © 2025 Ludovic ARGENTY. Tous droits réservés.
                         </p>
                         <div className="flex gap-8">
                             <a
