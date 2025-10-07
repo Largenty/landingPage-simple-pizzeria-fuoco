@@ -85,27 +85,27 @@ export default function PanierPage() {
                 variant="outline"
                 size="sm"
                 onClick={clearCart}
-                className="text-neutral-600 hover:text-black border-neutral-300"
+                className="text-neutral-600 hover:text-black border-neutral-300 rounded-none"
               >
                 Vider le panier
               </Button>
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 ">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
               {items.map((item) => (
-                <Card key={item.name} className="bg-white border-neutral-200 overflow-hidden">
+                <Card key={item.name} className="bg-white border-neutral-200 overflow-hidden rounded-none">
                   <CardContent className="p-0">
                     <div className="flex gap-4">
                       {/* Image */}
-                      <div className="relative w-32 h-32 flex-shrink-0">
+                      <div className="relative w-32 flex-shrink-0">
                         <Image
                           src={item.image}
                           alt={item.name}
                           fill
-                          className="object-cover grayscale"
+                          className="object-cover grayscale hover:scale-105 transition-all duration-300 hover:grayscale-0"
                         />
                       </div>
 
@@ -120,7 +120,7 @@ export default function PanierPage() {
                               variant="ghost"
                               size="icon-sm"
                               onClick={() => removeItem(item.name)}
-                              className="text-neutral-500 hover:text-black"
+                              className="text-neutral-500 hover:text-black rounded-none"
                             >
                               <Trash2 className="h-4 w-4" />
                             </Button>
@@ -137,7 +137,7 @@ export default function PanierPage() {
                               variant="outline"
                               size="icon-sm"
                               onClick={() => updateQuantity(item.name, item.quantity - 1)}
-                              className="h-8 w-8 border-neutral-300"
+                              className="h-8 w-8 border-neutral-300 rounded-none"
                             >
                               <Minus className="h-3 w-3" />
                             </Button>
@@ -148,7 +148,7 @@ export default function PanierPage() {
                               variant="outline"
                               size="icon-sm"
                               onClick={() => updateQuantity(item.name, item.quantity + 1)}
-                              className="h-8 w-8 border-neutral-300"
+                              className="h-8 w-8 border-neutral-300 rounded-none"
                             >
                               <Plus className="h-3 w-3" />
                             </Button>
@@ -166,7 +166,7 @@ export default function PanierPage() {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <Card className="bg-neutral-50 border-neutral-200 sticky top-24">
+              <Card className="bg-neutral-50 border-neutral-200 sticky top-24 rounded-none">
                 <CardContent className="p-6">
                   <h2 className="text-xl font-medium text-black mb-6 tracking-wide">
                     Récapitulatif
@@ -188,14 +188,14 @@ export default function PanierPage() {
                     <span className="text-2xl font-light text-black">{totalPrice.toFixed(2)}€</span>
                   </div>
 
-                  <Button className="w-full bg-black hover:bg-red-600 text-white text-xs tracking-widest uppercase mb-3">
+                  <Button className="w-full bg-black hover:bg-red-600 text-white text-xs tracking-widest uppercase mb-3 rounded-none">
                     Commander
                   </Button>
 
                   <Link href="/#menu">
                     <Button
                       variant="outline"
-                      className="w-full border-neutral-300 text-neutral-700 hover:text-black text-xs tracking-widest uppercase"
+                      className="w-full border-neutral-300 text-neutral-700 hover:text-black text-xs tracking-widest uppercase rounded-none"
                     >
                       Continuer mes achats
                     </Button>

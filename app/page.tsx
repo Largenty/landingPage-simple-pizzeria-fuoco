@@ -2,7 +2,16 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Flame, Pizza, Clock, Users, MapPin, Phone, Mail, ShoppingCart } from "lucide-react";
+import {
+    Flame,
+    Pizza,
+    Clock,
+    Users,
+    MapPin,
+    Phone,
+    Mail,
+    ShoppingCart,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/lib/store";
@@ -86,7 +95,11 @@ export default function Home() {
                                 Contact
                             </a>
                             <Link href="/panier">
-                                <Button variant="outline" size="icon" className="bg-white relative border-black hover:border-red-600 rounded-none text-black hover:bg-red-600 hover:text-white">
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    className="rounded-none bg-white relative border-black hover:border-red-600 rounded-none text-black hover:bg-red-600 hover:text-white"
+                                >
                                     <ShoppingCart className="h-4 w-4" />
                                     {totalItems > 0 && (
                                         <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -95,7 +108,7 @@ export default function Home() {
                                     )}
                                 </Button>
                             </Link>
-                            <Button className="hover:bg-red-600 bg-black text-white text-sm tracking-wide uppercase px-6 cursor-pointer ">
+                            <Button className="rounded-none hover:bg-red-600 bg-black text-white text-sm tracking-wide uppercase px-6 cursor-pointer ">
                                 Réserver
                             </Button>
                         </div>
@@ -104,7 +117,7 @@ export default function Home() {
             </nav>
 
             {/* Hero Section */}
-            <section className="pt-20">
+            <section className="pt-32">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-0">
                         {/* Left Content */}
@@ -130,14 +143,14 @@ export default function Home() {
                             <div className="flex flex-wrap gap-4 mb-12">
                                 <Button
                                     size="lg"
-                                    className="bg-black hover:bg-red-600 text-white text-sm tracking-wider uppercase px-8"
+                                    className="rounded-none bg-black hover:bg-red-600 text-white text-sm tracking-wider uppercase px-8"
                                 >
                                     Commander
                                 </Button>
                                 <Button
                                     size="lg"
                                     variant="outline"
-                                    className="border-black text-black hover:bg-black hover:text-white text-sm tracking-wider uppercase px-8"
+                                    className="rounded-none border-black text-black hover:bg-black hover:text-white text-sm tracking-wider uppercase px-8"
                                 >
                                     Découvrir
                                 </Button>
