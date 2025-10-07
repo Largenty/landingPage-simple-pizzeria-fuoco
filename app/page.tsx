@@ -466,7 +466,7 @@ export default function Home() {
                                 Email
                             </h3>
                             <p className="text-neutral-600 font-light text-sm">
-                                contact@pizzeriafuoco.fr
+                                Largenty@gmail.com
                             </p>
                         </div>
                     </div>
