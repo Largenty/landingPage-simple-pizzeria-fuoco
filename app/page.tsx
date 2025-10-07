@@ -10,14 +10,18 @@ import {
     Phone,
     Mail,
     ShoppingCart,
+    Menu,
+    X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/lib/store";
+import { useState } from "react";
 
 export default function Home() {
     const { addItem, getTotalItems } = useCartStore();
     const totalItems = getTotalItems();
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const pizzas = [
         {
@@ -62,8 +66,8 @@ export default function Home() {
         <div className="min-h-screen bg-white">
             {/* Navigation */}
             <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
+                <div className="w-full px-4 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-20 max-w-7xl mx-auto">
                         <div className="flex items-center gap-2">
                             <Flame
                                 className="h-7 w-7 text-black"
@@ -74,6 +78,7 @@ export default function Home() {
                                 <span className="font-medium">FUOCO</span>
                             </span>
                         </div>
+                        {/* Desktop Menu */}
                         <div className="hidden md:flex items-center gap-12">
                             <a
                                 href="#menu"
@@ -97,7 +102,7 @@ export default function Home() {
                                 <Button
                                     variant="outline"
                                     size="icon"
-                                    className="rounded-none bg-white relative border-black hover:border-red-600 rounded-none text-black hover:bg-red-600 hover:text-white"
+                                    className="rounded-none bg-white relative border-black hover:border-red-600 text-black hover:bg-red-600 hover:text-white"
                                 >
                                     <ShoppingCart className="h-4 w-4" />
                                     {totalItems > 0 && (
@@ -107,12 +112,78 @@ export default function Home() {
                                     )}
                                 </Button>
                             </Link>
-                            <Button className="rounded-none hover:bg-red-600 bg-black text-white text-sm tracking-wide uppercase px-6 cursor-pointer ">
+                            <Button className="rounded-none hover:bg-red-600 bg-black text-white text-sm tracking-wide uppercase px-6 cursor-pointer">
                                 Réserver
+                            </Button>
+                        </div>
+
+                        {/* Mobile Menu Button */}
+                        <div className="flex md:hidden items-center gap-3">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() =>
+                                    setMobileMenuOpen(!mobileMenuOpen)
+                                }
+                                className="rounded-none border-black hover:bg-black hover:text-white"
+                            >
+                                {mobileMenuOpen ? (
+                                    <X className="h-5 w-5" />
+                                ) : (
+                                    <Menu className="h-5 w-5" />
+                                )}
                             </Button>
                         </div>
                     </div>
                 </div>
+
+                {/* Mobile Menu Dropdown */}
+                {mobileMenuOpen && (
+                    <div className="md:hidden border-t border-neutral-200 bg-white w-full">
+                        <div className="px-4 sm:px-6 py-6 space-y-4 max-w-7xl mx-auto">
+                            <a
+                                href="#menu"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-neutral-700 hover:text-black transition-colors text-sm tracking-wide uppercase py-2"
+                            >
+                                Menu
+                            </a>
+                            <a
+                                href="#about"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-neutral-700 hover:text-black transition-colors text-sm tracking-wide uppercase py-2"
+                            >
+                                À propos
+                            </a>
+                            <a
+                                href="#contact"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-neutral-700 hover:text-black transition-colors text-sm tracking-wide uppercase py-2"
+                            >
+                                Contact
+                            </a>
+                            <Link
+                                href="/panier"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <div className="flex items-center justify-between py-2 text-neutral-700 hover:text-black transition-colors text-sm tracking-wide uppercase">
+                                    <span>Panier</span>
+                                    {totalItems > 0 && (
+                                        <span className="bg-black text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">
+                                            {totalItems}
+                                        </span>
+                                    )}
+                                </div>
+                            </Link>
+                            <Button
+                                className="w-full rounded-none hover:bg-red-600 bg-black text-white text-sm tracking-wide uppercase px-6 cursor-pointer"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                Réserver
+                            </Button>
+                        </div>
+                    </div>
+                )}
             </nav>
 
             {/* Hero Section */}
