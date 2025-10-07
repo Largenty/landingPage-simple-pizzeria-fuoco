@@ -190,4 +190,15 @@
             background-position: 0% 50%;
         }
     }
+
+    /* Scroll reveal for images: becomes clear when in view (mobile first) */
+    .scroll-reveal-img {
+        transition: filter 700ms ease, transform 700ms ease;
+    }
+    @media (hover: none) {
+        .in-view .scroll-reveal-img {
+            filter: grayscale(0%);
+            transform: scale(1.04);
+        }
+    }
 }

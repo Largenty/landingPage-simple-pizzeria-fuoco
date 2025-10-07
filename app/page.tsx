@@ -18,12 +18,38 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/lib/store";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
     const { addItem, getTotalItems, items, updateQuantity } = useCartStore();
     const totalItems = getTotalItems();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isHydrated, setIsHydrated] = useState(false);
+    const cardImageRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+    useEffect(() => {
+        setIsHydrated(true);
+        if (typeof window === "undefined") return;
+        const mediaNoHover = window.matchMedia("(hover: none)");
+        if (!mediaNoHover.matches) return; // Only run this on mobile/touch
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                    } else {
+                        entry.target.classList.remove("in-view");
+                    }
+                });
+            },
+            { root: null, rootMargin: "0px", threshold: 0.35 }
+        );
+
+        cardImageRefs.current.forEach((el) => el && observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
 
     const pizzas = [
         {
@@ -107,7 +133,7 @@ export default function Home() {
                                     className="rounded-none bg-white relative border-black hover:border-red-600 text-black hover:bg-red-600 hover:text-white"
                                 >
                                     <ShoppingCart className="h-4 w-4" />
-                                    {totalItems > 0 && (
+                                    {isHydrated && totalItems > 0 && (
                                         <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                                             {totalItems}
                                         </span>
@@ -121,7 +147,7 @@ export default function Home() {
 
                         {/* Mobile Menu Button */}
                         <div className="flex md:hidden items-center gap-3">
-                            {totalItems > 0 && (
+                            {isHydrated && totalItems > 0 && (
                                 <span className="absolute top-3 right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                                     {totalItems}
                                 </span>
@@ -175,7 +201,7 @@ export default function Home() {
                             >
                                 <div className="flex items-center justify-between py-2 text-neutral-700 hover:text-black transition-colors text-sm tracking-wide uppercase">
                                     <span>Panier</span>
-                                    {totalItems > 0 && (
+                                    {isHydrated && totalItems > 0 && (
                                         <span className="bg-black text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">
                                             {totalItems}
                                         </span>
@@ -329,12 +355,17 @@ export default function Home() {
                                 key={index}
                                 className="rounded-none bg-white border-neutral-200 hover:border-black transition-all duration-500 group overflow-hidden"
                             >
-                                <div className="relative h-80 overflow-hidden">
+                                <div
+                                    className="relative h-80 overflow-hidden"
+                                    ref={(el) => {
+                                        cardImageRefs.current[index] = el;
+                                    }}
+                                >
                                     <Image
                                         src={pizza.image}
                                         alt={pizza.name}
                                         fill
-                                        className="object-cover grayscale interactive-img"
+                                        className="object-cover grayscale interactive-img scroll-reveal-img"
                                     />
                                 </div>
                                 <CardContent className="p-6">
