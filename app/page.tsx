@@ -6,7 +6,6 @@ import {
     Flame,
     Pizza,
     Clock,
-    Users,
     MapPin,
     Phone,
     Mail,
@@ -128,17 +127,17 @@ export default function Home() {
                                 </span>
                             </div>
                             <h1 className="text-6xl md:text-8xl font-light leading-none mb-8 tracking-tight">
-                                <span className="text-black">L'Arte</span>
+                                <span className="text-black">L&apos;Arte</span>
                                 <br />
                                 <span className="text-black font-medium">
                                     Napoletana
                                 </span>
                             </h1>
                             <p className="text-lg text-neutral-600 leading-relaxed mb-12 max-w-md font-light">
-                                L'authenticité d'une tradition séculaire. Chaque
-                                pizza est façonnée à la main et cuite au feu de
-                                bois selon les règles strictes de l'école
-                                napolitaine.
+                                L&apos;authenticité d&apos;une tradition
+                                séculaire. Chaque pizza est façonnée à la main
+                                et cuite au feu de bois selon les règles
+                                strictes de l&apos;école napolitaine.
                             </p>
                             <div className="flex flex-wrap gap-4 mb-12">
                                 <Button
@@ -243,7 +242,7 @@ export default function Home() {
                         <p className="text-lg text-neutral-600 font-light max-w-2xl mx-auto">
                             Chaque recette respecte la tradition napolitaine,
                             avec une pâte fermentée 48h et des ingrédients
-                            d'exception
+                            d&apos;exception
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
@@ -295,7 +294,7 @@ export default function Home() {
                             </span>
                         </div>
                         <h2 className="text-5xl md:text-6xl font-light text-black tracking-tight">
-                            L'Excellence
+                            L&apos;Excellence
                         </h2>
                     </div>
                     <div className="grid md:grid-cols-3 gap-12">
