@@ -365,7 +365,11 @@ export default function Home() {
                                         src={pizza.image}
                                         alt={pizza.name}
                                         fill
-                                        className="object-cover grayscale interactive-img scroll-reveal-img"
+                                        className={`object-cover interactive-img scroll-reveal-img transition-all duration-700 ${
+                                            items.find((i) => i.name === pizza.name)
+                                                ? "grayscale-0"
+                                                : "grayscale group-hover:grayscale-0"
+                                        }`}
                                     />
                                 </div>
                                 <CardContent className="p-6">
