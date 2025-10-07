@@ -12,6 +12,8 @@ import {
     ShoppingCart,
     Menu,
     X,
+    Minus,
+    Plus,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +21,7 @@ import { useCartStore } from "@/lib/store";
 import { useState } from "react";
 
 export default function Home() {
-    const { addItem, getTotalItems } = useCartStore();
+    const { addItem, getTotalItems, items, updateQuantity } = useCartStore();
     const totalItems = getTotalItems();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -119,6 +121,11 @@ export default function Home() {
 
                         {/* Mobile Menu Button */}
                         <div className="flex md:hidden items-center gap-3">
+                            {totalItems > 0 && (
+                                <span className="absolute top-3 right-4 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                    {totalItems}
+                                </span>
+                            )}
                             <Button
                                 variant="outline"
                                 size="icon"
@@ -342,12 +349,60 @@ export default function Home() {
                                     <p className="text-neutral-600 mb-6 font-light text-sm leading-relaxed">
                                         {pizza.desc}
                                     </p>
-                                    <Button
-                                        onClick={() => addItem(pizza)}
-                                        className="w-full bg-black hover:bg-red-600 text-white text-xs tracking-widest uppercase"
-                                    >
-                                        Ajouter au panier
-                                    </Button>
+                                    {(() => {
+                                        const existing = items.find(
+                                            (i) => i.name === pizza.name
+                                        );
+                                        if (!existing) {
+                                            return (
+                                                <Button
+                                                    onClick={() =>
+                                                        addItem(pizza)
+                                                    }
+                                                    className="w-full bg-black hover:bg-red-600 text-white text-xs tracking-widest uppercase"
+                                                >
+                                                    Ajouter au panier
+                                                </Button>
+                                            );
+                                        }
+                                        return (
+                                            <div className="flex justify-between items-center w-full">
+                                                <div className="flex items-center w-full gap-8">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="icon-sm"
+                                                        onClick={() =>
+                                                            updateQuantity(
+                                                                pizza.name,
+                                                                existing.quantity -
+                                                                    1
+                                                            )
+                                                        }
+                                                        className="h-8 w-8 border-neutral-300 rounded-none w-50"
+                                                    >
+                                                        <Minus className="h-3 w-3" />
+                                                    </Button>
+                                                    <span className="w-8 text-center text-sm font-medium w-full">
+                                                        {existing.quantity}
+                                                    </span>
+                                                    <Button
+                                                        variant="outline"
+                                                        size="icon-sm"
+                                                        onClick={() =>
+                                                            updateQuantity(
+                                                                pizza.name,
+                                                                existing.quantity +
+                                                                    1
+                                                            )
+                                                        }
+                                                        className="h-8 w-8 border-neutral-300 rounded-none w-50"
+                                                    >
+                                                        <Plus className="h-3 w-3" />
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
                                 </CardContent>
                             </Card>
                         ))}
