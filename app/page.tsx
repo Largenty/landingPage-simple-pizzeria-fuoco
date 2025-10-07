@@ -366,7 +366,9 @@ export default function Home() {
                                         alt={pizza.name}
                                         fill
                                         className={`object-cover interactive-img scroll-reveal-img transition-all duration-700 ${
-                                            items.find((i) => i.name === pizza.name)
+                                            items.find(
+                                                (i) => i.name === pizza.name
+                                            )
                                                 ? "grayscale-0"
                                                 : "grayscale group-hover:grayscale-0"
                                         }`}

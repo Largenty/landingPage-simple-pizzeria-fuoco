@@ -123,7 +123,7 @@ export default function PanierPage() {
                                                     src={item.image}
                                                     alt={item.name}
                                                     fill
-                                                    className="object-cover grayscale hover:scale-105 transition-all duration-300 hover:grayscale-0"
+                                                    className="object-cover hover:scale-105 transition-all duration-300"
                                                 />
                                             </div>
 
