@@ -122,7 +122,7 @@ export default function Home() {
                         {/* Mobile Menu Button */}
                         <div className="flex md:hidden items-center gap-3">
                             {totalItems > 0 && (
-                                <span className="absolute top-3 right-4 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                <span className="absolute top-3 right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                                     {totalItems}
                                 </span>
                             )}
@@ -378,7 +378,7 @@ export default function Home() {
                                                                     1
                                                             )
                                                         }
-                                                        className="h-8 w-8 border-neutral-300 rounded-none w-50"
+                                                        className="h-8 w-8 border-neutral-300 rounded-none w-1/3"
                                                     >
                                                         <Minus className="h-3 w-3" />
                                                     </Button>
@@ -395,7 +395,7 @@ export default function Home() {
                                                                     1
                                                             )
                                                         }
-                                                        className="h-8 w-8 border-neutral-300 rounded-none w-50"
+                                                        className="h-8 w-8 border-neutral-300 rounded-none w-1/3"
                                                     >
                                                         <Plus className="h-3 w-3" />
                                                     </Button>
